@@ -15,7 +15,6 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Wrx from "../../pics/06wrxps3.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
   avatar: {
-    backgroundColor: red[500],
+    backgroundColor: red[900],
   },
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -53,7 +52,7 @@ export default function RecipeReviewCard() {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            E
+            {props.inital}
           </Avatar>
         }
         action={
@@ -61,15 +60,13 @@ export default function RecipeReviewCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Beautiful Hawkeye WRX"
-        subheader="Lake Front Photoshoot"
+        title={props.titleName}
+        subheader={props.date}
       />
-      <CardMedia className={classes.media} image={Wrx} title="06WRX" />
+      <CardMedia className={classes.media} image={props.image} title="06WRX" />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive car is a perfect party vehicle and a fun drive to
-          cruise together with your homies. Add 16 gallons of premium gas along
-          with the every oil change at 3000 miles and you
+          {props.bodyText}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -92,16 +89,11 @@ export default function RecipeReviewCard() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Owner:</Typography>
-          <Typography paragraph>Elijah Xiong</Typography>
-          <Typography paragraph>
-            Oldest of 7 with 2 brothers and 4 sisters.
-          </Typography>
-          <Typography paragraph>In a 6 year relationship almost 7.</Typography>
-          <Typography>
-            Loves to cruise with friends, collect pokemon cards, and play
-            volleyball 🏐
-          </Typography>
+          <Typography paragraph>{props.Owner}</Typography>
+          <Typography paragraph>{props.Name}</Typography>
+          <Typography paragraph>{props.Desc}</Typography>
+          <Typography paragraph></Typography>
+          <Typography></Typography>
         </CardContent>
       </Collapse>
     </Card>
