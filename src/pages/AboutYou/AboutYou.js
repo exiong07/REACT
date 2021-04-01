@@ -1,4 +1,5 @@
 import React from "react";
+import "./AboutYou.css";
 
 class AboutYou extends React.Component {
   constructor() {
@@ -9,8 +10,8 @@ class AboutYou extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h2>{this.state.name}</h2>
+      <div className="AboutYou">
+        <h2>About Me</h2>
       </div>
     );
   }
